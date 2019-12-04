@@ -1,6 +1,6 @@
 const http = require('http');
 
-const {public, home, users, items, item, match, hero, heroitems, matchhero, notFound} = require('./routes/index.js');
+const {public, home, users, items, item, match, hero, heroitems, matchhero, notFound, sql} = require('./routes/index.js');
 
 http.createServer((req, res) => {
     if (req.url.match(/\.(html|css|js|png)$/)){
@@ -21,6 +21,8 @@ http.createServer((req, res) => {
         match(req, res);
     } else if (req.url.startsWith('/hero')) {
         hero(req, res);
+    } else if (req.url.startsWith('/sql')) {
+        sql(req, res);
     } else {
         // console.log(req.url);
         // notFound(req, res);

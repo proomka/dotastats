@@ -33,9 +33,12 @@
                     <a class="nav-link" href="/heroitems">Hero_Items</a>
                   </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="/sql" method="post">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0" action="/sql/add" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Search: </label>
+                        <input type="search" class="form-control" aria-label="Search" name="search" placeholder="Search">
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
               </div>
             </nav>
