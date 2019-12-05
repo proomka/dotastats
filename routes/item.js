@@ -7,7 +7,11 @@ const getParm = require('../lib/getParm.js');
 function item(req, res){
     req.setEncoding('utf-8');
 
-    const data = {};
+    const data = {
+        header: [],
+        formAdd: [],
+        formEddit: []
+    };
     // const sql = "SELECT items.item_name, Count(heroitems.id_item = items.id_item) as n, Count(items.id_item = heroitems.id_item and heroitems.id_match = matchhero.id_match and matchhero.result = 'win') from items, heroitems, matchhero GROUP BY items.id_item";
     const sql = "SELECT hi.id_item, Count(matchhero.result) FROM heroitems hi LEFT JOIN matchhero on hi.id_hero=matchhero.id_hero WHERE matchhero.result='win' group by id_item";
     render('item.html', data, sql, (error, html) => {

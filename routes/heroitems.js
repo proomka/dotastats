@@ -24,7 +24,11 @@ function hero_items(req, res){req.setEncoding('utf-8');
         });
     }
 
-    const data = {};
+    const data = {
+        header: [],
+        formAdd: [],
+        formEddit: []
+    };
     const sql = '';
     render('heroitem.html', data, sql, (error, html) => {
         if (error) {

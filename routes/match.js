@@ -25,7 +25,11 @@ function match(req, res){
         });
     }
 
-    const data = {};
+    const data = {
+        header: [],
+        formAdd: [],
+        formEddit: []
+    };
     const sql = '';
     render('match.html', data, sql, (error, html) => {
         if (error) {
