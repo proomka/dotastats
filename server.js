@@ -1,6 +1,9 @@
 const http = require('http');
 
-const {public, home, users, items, item, match, hero, heroitems, matchhero, notFound, sql} = require('./routes/index.js');
+const {public, home, users, items, item, match, hero, heroitems, matchhero, notFound, sql, post} = require('./routes/index.js');
+
+// Создать отчёт 5 часов
+// Всего 2 + 5 часов
 
 http.createServer((req, res) => {
     if (req.url.match(/\.(html|css|js|png)$/)){
@@ -23,9 +26,10 @@ http.createServer((req, res) => {
         hero(req, res);
     } else if (req.url.startsWith('/sql')) {
         sql(req, res);
+    } else if (req.url.startsWith('/post')) {
+        post(req, res);
     } else {
         // console.log(req.url);
-        // notFound(req, res);
     }
     }).listen(3000, () => {
         console.log('Server worked!');

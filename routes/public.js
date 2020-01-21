@@ -5,7 +5,6 @@ function public(req, res) {
     const extension = path.extname(req.url);
     const filename = req.url.slice(1);
     let contentType = '';
-
     switch (extension) {
         case '.html':
             contentType = 'text/html';

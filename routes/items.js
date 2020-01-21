@@ -19,19 +19,20 @@ function items(req, res){
             postgreSQL(sql, parm, () => {});
         }, (body) => {
             const dataParse = parseBody(body);
-            const sql = ';';
+            const sql = 'DELETE FROM items WHERE id_item = $1;';
             const parm = getParm(dataParse);
             postgreSQL(sql, parm, () => {});
         });
     }
 
+    var eddit = true;
     const data = {
-        header: [],
-        formAdd: [],
-        formEddit: []
+        header: ['Id', 'Name', 'Cost', 'Type', 'Description'],
+        formAdd: ['Name', 'Cost', 'Type', 'Description'],
+        formEddit: ['Name', 'Cost', 'Type', 'Description']
     };
     const sql = null;
-    render('items.html', data, sql, (error, html) => {
+    render('items.html', eddit, data, sql, (error, html) => {
         if (error) {
             res.writeHead(500, {'Cotent-Type': 'text/plain'});
             return res.end(error.message);

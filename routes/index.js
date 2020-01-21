@@ -9,6 +9,7 @@ const match = require('./match');
 const items = require('./items');
 const item = require('./item');
 const sql = require('./sql');
+const post = require('./post');
 
 const notFound = require('./notFound');
 
@@ -23,5 +24,6 @@ module.exports = {
     heroitems,
     matchhero,
     notFound,
-    sql
+    sql,
+    post
 };
